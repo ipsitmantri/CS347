@@ -1,0 +1,4 @@
+total 0
+lrwx------ 1 ipsit ipsit 64 Jan 12 13:54 0 -> /dev/pts/1
+l-wx------ 1 ipsit ipsit 64 Jan 12 13:54 1 -> /tmp/tmp.txt
+lrwx------ 1 ipsit ipsit 64 Jan 12 13:54 2 -> /dev/pts/1

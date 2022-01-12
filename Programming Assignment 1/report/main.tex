@@ -1,0 +1,57 @@
+\documentclass[a4paper]{article} 
+\input{style/head.tex}
+
+%-------------------------------
+%	TITLE VARIABLES (identify your work!)
+%-------------------------------
+
+\newcommand{\yourname}{Mantri Krishna Sri Ipsit} % replace YOURNAME with your name
+\newcommand{\yournetid}{180070032} % replace YOURNETID with your NetID
+\newcommand{\youremail}{180070032@iitb.ac.in} % replace YOUREMAIL with your email
+\newcommand{\assignmentnumber}{1} % replace X with assignment number
+\usepackage{verbatim}
+\usepackage{xcolor}
+
+\newcommand{\command}[1]{\colorbox{lightgray}{\texttt{#1}}}
+
+\begin{document}
+
+%-------------------------------
+%	TITLE SECTION (do not modify unless you really need to)
+%-------------------------------
+\input{style/header.tex}
+
+%-------------------------------
+%	ASSIGNMENT CONTENT (add your responses)
+%-------------------------------
+
+\section*{Part A: Understanding Linux Processes}
+
+\begin{enumerate}
+	\item 
+	\begin{enumerate}
+		\item My machine has \textbf{6} CPU cores. Each core has \textbf{2} threads. Hence the command \command{more /proc/cpuinfo} shows \textbf{12} different processors.
+		\item Frequency of each CPU is \textbf{2}.
+		\item My system has a total of \textbf{16335724 kB}. Out of this, \textbf{6286200 kB} is free. This is found using the \command{more /proc/meminfo} command.
+		\item The total number of forks since bootup is \textbf{24541}. And the total number of context switches since bootup is \textbf{87459116}. This is found using the \command{more /proc/stat} command.
+	\end{enumerate}
+	\item 
+	\begin{enumerate}
+		\item The PID of the process running the \command{cpu} command is \textbf{24831}.
+		\item This process is consuming \textbf{100\%} of CPU and \textbf{0\%} of memory.
+		\item The current state of the process is \textbf{R}. It is in \textbf{running} state.
+	\end{enumerate}
+	\item 
+	\begin{enumerate}
+		\item The PID of the process spawned by the shell to run the \texttt{cpu-print} executable is \textbf{27038}. This is found using the \command{ps -C cpu-print} command.
+		\item The PID of the parent of the \texttt{cpu-print} process is \textbf{11168}. This is found using the \command{ps -f -C cpu-print} command. The PIDs of all ancestors are:
+		\verbatiminput{ancestors.txt}
+		\item Using the \command{ls -l /proc/32077/fd} (here 32077 is the PID of the output redirection process) command, we get the following:
+		\verbatiminput{fd.txt}
+		Here we can see that the file descriptor for standard output is being pointed to \texttt{/tmp/tmp.txt} while the other descriptors are pointing towards a pseudo-terminal. Hence we can say that the I/O redirection happens in the following way: \textbf{\textit{First, based on the redirection type (<, >, or 2>), a file is opened (if it already exists then that will be used) with the given filename and then in the process, the file descriptor will point to the new file opened. In that way, whenever a system call is made to print to a screen or throw an error or take input, the data is sent to the file to which the file descriptor points to.}}
+	\end{enumerate}
+	\item 
+\end{enumerate}
+
+
+\end{document}

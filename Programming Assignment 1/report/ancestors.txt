@@ -1,0 +1,1 @@
+systemd(1)---systemd(6069)---gnome-terminal-(11158)---bash(11168)---cpu-print(27038)
