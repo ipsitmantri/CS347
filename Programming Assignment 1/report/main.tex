@@ -48,10 +48,24 @@
 		\verbatiminput{ancestors.txt}
 		\item Using the \command{ls -l /proc/32077/fd} (here 32077 is the PID of the output redirection process) command, we get the following:
 		\verbatiminput{fd.txt}
-		Here we can see that the file descriptor for standard output is being pointed to \texttt{/tmp/tmp.txt} while the other descriptors are pointing towards a pseudo-terminal. Hence we can say that the I/O redirection happens in the following way: \textbf{\textit{First, based on the redirection type (<, >, or 2>), a file is opened (if it already exists then that will be used) with the given filename and then in the process, the file descriptor will point to the new file opened. In that way, whenever a system call is made to print to a screen or throw an error or take input, the data is sent to the file to which the file descriptor points to.}}
+		Here we can see that the file descriptor for standard output is being pointed to \texttt{/tmp/tmp.txt} while the other descriptors are pointing towards a pseudo-terminal. Hence we can say that the I/O redirection happens in the following way: \textbf{\textit{First, based on the redirection type ($<$, $>$, or $2>$), a file is opened (if it already exists then that will be used) with the given filename and then in the process, the file descriptor will point to the new file opened. In that way, whenever a system call is made to print to a screen or throw an error or take input, the data is sent to the file to which the file descriptor points to.}}
 	\end{enumerate}
 	\item 
+		\begin{enumerate}
+			\item In the program, there is a loop that runs 4 times. Inside each loop, \texttt{fork()} is called. Hence the processes created can be explained using the following flow chart:
+			\begin{figure}[ht]
+				\centering
+				\includegraphics[scale=0.4]{flowchart.png}
+			\end{figure}
+		
+			As we can see here, the output of \texttt{fork4.c} program should contain \textbf{1} line of child 0, \textbf{2} lines of child 1, \textbf{4} lines of child 2 and \textbf{8} lines of child 3. The order in which these lines are printed is based on the scheduling algorithm the OS is using. But theoritically, whenever a \texttt{fork()} is called, the parent and the created child execute concurrently. 
+			\item The program has been modified as follows:
+			 \verbatiminput{../fork4_wait.c}
+			 This is nothing but the parent waits for the child to finish its process. So as expected, rge children will be reaped in a depth-first order, i.e., the most recently created child will be reaped first. Here is the output of the modified program above:
+			 \verbatiminput{./fork4_wait_output.txt}
+		\end{enumerate}
 \end{enumerate}
 
+\section*{Part B: A Simple Shell}
 
 \end{document}

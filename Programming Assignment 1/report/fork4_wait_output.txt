@@ -1,0 +1,30 @@
+child: i = 0, PID = 27581, PPID = 27580
+child: i = 1, PID = 27582, PPID = 27581
+child: i = 2, PID = 27583, PPID = 27582
+child: i = 3, PID = 27584, PPID = 27583
+reaped: PID = 27584
+reaped: PID = 27583
+child: i = 3, PID = 27585, PPID = 27582
+reaped: PID = 27585
+reaped: PID = 27582
+child: i = 2, PID = 27586, PPID = 27581
+child: i = 3, PID = 27587, PPID = 27586
+reaped: PID = 27587
+reaped: PID = 27586
+child: i = 3, PID = 27588, PPID = 27581
+reaped: PID = 27588
+reaped: PID = 27581
+child: i = 1, PID = 27589, PPID = 27580
+child: i = 2, PID = 27590, PPID = 27589
+child: i = 3, PID = 27591, PPID = 27590
+reaped: PID = 27591
+reaped: PID = 27590
+child: i = 3, PID = 27592, PPID = 27589
+reaped: PID = 27592
+reaped: PID = 27589
+child: i = 2, PID = 27593, PPID = 27580
+child: i = 3, PID = 27594, PPID = 27593
+reaped: PID = 27594
+reaped: PID = 27593
+child: i = 3, PID = 27595, PPID = 27580
+reaped: PID = 27595

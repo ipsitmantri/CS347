@@ -3,14 +3,13 @@
 #include <unistd.h>
 
 void main(int argc, void* argv) {
-
+	printf("Current PID: %d\n", getpid());
 	for (int i = 0; i < 4; i++) {
 		int ret = fork();
 		if (ret == 0) {
-			printf("child %d\n", i);
-		}
-		else {
-			printf("else block %d\n", i);
+			int pid = getpid();
+			int ppid = getppid();
+			printf("child: i = %d, PID = %d, PPID = %d\n", i, pid, ppid);
 		}
 	}
 
