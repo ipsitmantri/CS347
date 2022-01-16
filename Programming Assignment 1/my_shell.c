@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include <sys/wait.h>
 
 #define MAX_INPUT_SIZE 1024
 #define MAX_TOKEN_SIZE 64
@@ -43,7 +44,7 @@ int main(int argc, char* argv[]) {
 	char  line[MAX_INPUT_SIZE];            
 	char  **tokens;              
 	int i;
-
+	char exit_command[] = "exit";
 
 	while(1) {			
 		/* BEGIN: TAKING INPUT */
@@ -51,17 +52,28 @@ int main(int argc, char* argv[]) {
 		printf("$ ");
 		scanf("%[^\n]", line);
 		getchar();
-
-		printf("Command entered: %s (remove this debug output later)\n", line);
 		/* END: TAKING INPUT */
 
 		line[strlen(line)] = '\n'; //terminate with new line
 		tokens = tokenize(line);
-   
-       //do whatever you want with the commands, here we just print them
 
-		for(i=0;tokens[i]!=NULL;i++){
-			printf("found token %s (remove this debug output later)\n", tokens[i]);
+		// checking if the command provided is `exit` and exiting the shell accordingly
+		if (strcmp(exit_command, tokens[0]) == 0)
+		{
+			exit(1);
+		}
+   
+       // creating child process
+
+		int ret = fork();
+		if (ret == 0)
+		{
+			execvp(tokens[0], tokens);
+			fprintf(stderr, "invalid command\n"); // throwing error for invalid commands.
+		}
+		else
+		{
+			wait(NULL); // reaping the child processes
 		}
        
 		// Freeing the allocated memory	

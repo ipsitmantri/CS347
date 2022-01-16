@@ -37,14 +37,14 @@
 	\end{enumerate}
 	\item 
 	\begin{enumerate}
-		\item The PID of the process running the \command{cpu} command is \textbf{24831}.
+		\item The PID of the process running the \texttt{cpu} command is \textbf{24831}.
 		\item This process is consuming \textbf{100\%} of CPU and \textbf{0\%} of memory.
 		\item The current state of the process is \textbf{R}. It is in \textbf{running} state.
 	\end{enumerate}
 	\item 
 	\begin{enumerate}
 		\item The PID of the process spawned by the shell to run the \texttt{cpu-print} executable is \textbf{27038}. This is found using the \command{ps -C cpu-print} command.
-		\item The PID of the parent of the \texttt{cpu-print} process is \textbf{11168}. This is found using the \command{ps -f -C cpu-print} command. The PIDs of all ancestors are:
+		\item The PID of the parent of the \texttt{cpu-print} process is \textbf{11168}. This is found using the \command{ps -f -C cpu-print} command. The PIDs of all ancestors found using \command{pstree -sp 11168} are:
 		\verbatiminput{ancestors.txt}
 		\item Using the \command{ls -l /proc/32077/fd} (here 32077 is the PID of the output redirection process) command, we get the following:
 		\verbatiminput{fd.txt}
