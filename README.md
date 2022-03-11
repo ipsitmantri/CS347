@@ -9,3 +9,9 @@ This [assignment](./Programming Assignment 1/pa1.pdf){:target="_blank"} consists
 1. Understanding Processes in Linux
 2. Working of a Simple Shell
 3. Working of System Calls in xv6
+
+## Programming Assignment 2
+This [assignment](./Programming Assignment 2/xv6-mem.pdf){:target="_blank"} consists of two parts and is based on understanding memory management in xv6:
+1.  Displaying Memory Information
+2.  Memory Mapping
+    - Implementing demand paging
