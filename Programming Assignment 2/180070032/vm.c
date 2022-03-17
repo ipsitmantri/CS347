@@ -285,23 +285,6 @@ allocuvm(pde_t *pgdir, uint oldsz, uint newsz)
   return newsz;
 }
 
-// Allocate pages based on demand paging
-uint
-allocuvm_demand(pde_t *pgdir, uint oldsz, uint newsz)
-{
-  uint a;
-  if (newsz >= KERNBASE)
-  {
-    return 0;
-  }
-  if (newsz < oldsz)
-  {
-    return oldsz;
-  }
-  a = PGROUNDUP(oldsz);
-  return a;
-}
-
 // Allocate physical memory when page fault occurs
 int
 allocupm(pde_t* pgdir, uint va)

@@ -189,7 +189,6 @@ int             copyout(pde_t*, uint, void*, uint);
 void            clearpteu(pde_t *pgdir, char *uva);
 int             numvp(struct proc*);
 int             numpp(struct proc*);
-uint             allocuvm_demand(pde_t*, uint, uint);
 int             allocupm(pde_t*, uint);
 
 // number of elements in fixed-size array
