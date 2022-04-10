@@ -3,7 +3,7 @@
 
 pthread_mutex_t lock;
 pthread_cond_t A1Done, B1Done;
-int A1, B1;
+int A1 = 0, B1 = 0;
 
 void *threadA(void *args)
 {
