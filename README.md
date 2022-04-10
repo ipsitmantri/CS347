@@ -15,3 +15,10 @@ This [assignment](./Programming Assignment 2/xv6-mem.pdf){:target="_blank"} cons
 1.  Displaying Memory Information
 2.  Memory Mapping
     - Implementing demand paging
+
+## Programming Assignment 3
+This [assignment](./Programming%20Assignment%203/pthreads-sync.pdf){:target="_blank"} consists of 4 parts, but only the last 2 parts were required to be done. It is based on understanding concurrency and synchronization using semaphores and conditional variables:
+1. Implementing semaphore using ```pthreads``` library
+2. Using our own problem on concurreny and synchronization, coming up with
+    - One correct and one incorrect solution using semaphores
+    - One correct and one incorrect solution using conditional variables
