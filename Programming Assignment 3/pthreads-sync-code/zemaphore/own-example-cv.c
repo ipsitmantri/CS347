@@ -32,6 +32,7 @@ void *threadB(void *args)
     }
     // B1 = 1;      // incorrect
     // pthread_cond_signal(&B1Done); // incorrect
+    pthread_mutex_unlock(&lock);
     printf("B2\n");
     return 0;
 }
